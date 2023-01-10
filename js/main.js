@@ -8,7 +8,7 @@ searchEl.addEventListener('click',function(){
 
 searchInputEl.addEventListener('focus',function(){
     searchEl.classList.add('focused');
-    searchInputEl.setAttribute('placeholder','통합검색');
+    searchInputEl.setAttribute('placeholder','�넻�빀寃��깋');
 });
 
 searchInputEl.addEventListener('blur',function(){
@@ -23,61 +23,61 @@ const toTopEl = document.querySelector('#to-top');
 window.addEventListener('scroll',_.throttle(function(){
     console.log(window.scrollY);
     if(window.scrollY > 500){
-        //배지 숨기기
-       // gsap.to(요소,지속시간,옵션);
+        //諛곗�� �닲湲곌린
+       // gsap.to(�슂�냼,吏��냽�떆媛�,�샃�뀡);
        gsap.to(badgeEl,.6,{
         opacity: 0, 
         display: 'none'
        });
-       //버튼 보이기
+       //踰꾪듉 蹂댁씠湲�
        gsap.to(toTopEl,.2,{
         x: 0
     })
     }else{
-        //배지 보이기
+        //諛곗�� 蹂댁씠湲�
         gsap.to(badgeEl,.6,{
             opacity: 1 ,
             display: 'block'
            });
-        //버튼 숨기기
+        //踰꾪듉 �닲湲곌린
         gsap.to(toTopEl,.2,{
             x: 100
         })
         
     }
 },300));
-//_.throttle(함수,시간)
+//_.throttle(�븿�닔,�떆媛�)
 
 toTopEl.addEventListener('click',function(){
     gsap.to(window,.7,{
-        scrollTo:0 /* 화면의 위치를 0px 지점으로 옮겨준다. */
+        scrollTo:0 /* �솕硫댁쓽 �쐞移섎�� 0px 吏��젏�쑝濡� �삷寃⑥���떎. */
     })
     
 });
 
 
 const fadeEls = document.querySelectorAll('.visual .fade-in');
-fadeEls.forEach(function(fadeEl , index) { /* index : 반복되는 횟수 */
+fadeEls.forEach(function(fadeEl , index) { /* index : 諛섎났�릺�뒗 �슏�닔 */
     gsap.to(fadeEl , 1 , {
-        delay: (index+1)*.7, /* 순차적으로 실행시키기위한 딜레이 */
-        /* 0.7 1.4 2.1 초 뒤에 차례대로 시행된다. */
+        delay: (index+1)*.7, /* �닚李⑥쟻�쑝濡� �떎�뻾�떆�궎湲곗쐞�븳 �뵜�젅�씠 */
+        /* 0.7 1.4 2.1 珥� �뮘�뿉 李⑤�����濡� �떆�뻾�맂�떎. */
         opacity: 1,
     })
 
 });
-// new Swiper(선택자 , 옵션(객체 형식))
+// new Swiper(�꽑�깮�옄 , �샃�뀡(媛앹껜 �삎�떇))
 new Swiper('.notice-line .swiper-container',{
     direction: 'vertical',
     autoplay:true,
-    loop: true /* 반복재생 여부 */
+    loop: true /* 諛섎났�옱�깮 �뿬遺� */
 });
 
 new Swiper('.promotion .swiper-container', {
-    // direction: 'horizontal' 기본값
-    slidesPerView: 3, //한번에 보여줄 슬라이드 개수
-    spaceBetween:10 , // 슬라이드 사이 여백 (px)
-    centeredSlides: true, //1번 슬라이드가 가운데 보이기
-    loop: true , // 첫번째 이미지의 왼쪽에 마지막 이미지가 보임
+    // direction: 'horizontal' 湲곕낯媛�
+    slidesPerView: 3, //�븳踰덉뿉 蹂댁뿬以� �뒳�씪�씠�뱶 媛쒖닔
+    spaceBetween:10 , // �뒳�씪�씠�뱶 �궗�씠 �뿬諛� (px)
+    centeredSlides: true, //1踰� �뒳�씪�씠�뱶媛� 媛��슫�뜲 蹂댁씠湲�
+    loop: true , // 泥ル쾲吏� �씠誘몄���쓽 �쇊履쎌뿉 留덉��留� �씠誘몄��媛� 蹂댁엫
     // autoplay : {
     //     delay:5000
     // },
@@ -111,10 +111,10 @@ let isHidePromotion = false;
 promotionToggleBtn.addEventListener('click',function() {
     isHidePromotion = !isHidePromotion
     if(isHidePromotion){
-        //숨김 처리
+        //�닲源� 泥섎━
         promotionEl.classList.add('hide');
     }else {
-        //보임 처리
+        //蹂댁엫 泥섎━
         promotionEl.classList.remove('hide');
     }
 })
@@ -125,11 +125,11 @@ function random(min , max) {
 }
 
 function floatingObject(selector, delay , size) {
-   // gsap.to(요소 , 시간 , 옵션 );
+   // gsap.to(�슂�냼 , �떆媛� , �샃�뀡 );
    gsap.to(selector ,random(1.5,2.5) , {
     y: size,
     repeat:-1,
-    yoyo:true, //한번 재생된 애니메이션 역으로 다시 재생
+    yoyo:true, //�븳踰� �옱�깮�맂 �븷�땲硫붿씠�뀡 �뿭�쑝濡� �떎�떆 �옱�깮
     ease: Power1.easeInOut,
     delay:random(0,delay),
    } );
@@ -145,7 +145,7 @@ const spyEls = document.querySelectorAll('section.scroll-spy');
 spyEls.forEach(function(spyEl) {
     new ScrollMagic
         .Scene({ 
-            triggerElement: spyEl, //보여짐 여부를 감시할 요소를 지정
+            triggerElement: spyEl, //蹂댁뿬吏� �뿬遺�瑜� 媛먯떆�븷 �슂�냼瑜� 吏��젙
             triggerHook : .8
          })
         .setClassToggle(spyEl,'show')
